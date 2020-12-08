@@ -53,7 +53,9 @@ RUN apk update \
 
 
 COPY --from=base $RAILS_ROOT $RAILS_ROOT
-COPY ./CA.crt /usr/local/share/ca-certificates/CA.crt
+COPY ./certs/DigiCertCA.crt /usr/local/share/ca-certificates/DigiCertCA.crt
+COPY ./certs/ThawteCA.crt /usr/local/share/ca-certificates/ThawteCA.crt
+COPY ./certs/MojCA.crt /usr/local/share/ca-certificates/MojCA.crt
 RUN update-ca-certificates
 
 # Expose port 80.
